@@ -7,6 +7,7 @@ void oceanLevels();
 int main(){
 
 	foodBill();
+	oceanLevels();
 
 	return 0;
 }
@@ -30,11 +31,9 @@ void foodBill(){
 
 void oceanLevels(){
 
-	float oceanRise = 1.5f;
+	float oceanRise = 1.5f, oceanFive, oceanSeven, oceanTen;
+	oceanFive = 5 * oceanRise;
 
-	float oceanFive, oceanSeven, oceanTen;
-	oceanFive = 5 *
-
-	printf("The ocean's level will be ");
+	printf("The ocean's level will be %.2f\n", oceanFive);
 
 }
