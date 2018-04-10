@@ -6,6 +6,7 @@ void oceanLevels();
 
 int main(){
 
+	foodBill();
 
 	return 0;
 }
@@ -20,10 +21,10 @@ void foodBill(){
 	total += tipAmount;
 
 	printf("Restaurant Bill \n");
-	printf("Meal Cost: $" + mealCost + "\n");
-	printf("Tax Amount: $" + taxAmount + "\n");
-	printf("Tip Amount: $" + tipAmount + "\n");
-	printf("Total Bill: $" + total + "\n");
+	printf("Meal Cost: $%.2f\n", mealCost);
+	printf("Tax Amount: $%.2f\n", taxAmount);
+	printf("Tip Amount: $%.2f\n", tipAmount);
+	printf("Total Bill: $%.2f\n", total);
 
 }
 
