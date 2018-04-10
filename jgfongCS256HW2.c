@@ -26,14 +26,40 @@ void foodBill(){
 	printf("Tax Amount: $%.2f\n", taxAmount);
 	printf("Tip Amount: $%.2f\n", tipAmount);
 	printf("Total Bill: $%.2f\n", total);
+	printf("=====================\n");
 
 }
 
 void oceanLevels(){
 
-	float oceanRise = 1.5f, oceanFive, oceanSeven, oceanTen;
-	oceanFive = 5 * oceanRise;
+	float oceanRise = 1.5f;
 
-	printf("The ocean's level will be %.2f\n", oceanFive);
+	float oceanFive, oceanSeven, oceanTen;
+	oceanFive = 5 * oceanRise;
+	oceanSeven = 7 * oceanRise;
+	oceanTen = 10 * oceanRise;
+
+	printf("Future Ocean Levels \n");
+	printf("The ocean level is rising at a rate of %.2f millimeters per year.\n", oceanRise);
+	printf("The ocean's level will be %.2f millimeters higher in 5 years.\n", oceanFive);
+	printf("The ocean's level will be %.2f millimeters higher in 7 years.\n", oceanSeven);
+	printf("The ocean's level will be %.2f millimeters higher in 10 years.\n", oceanTen);
+	printf("=====================\n");
 
 }
+
+void stockTransaction(){
+
+	int stockNum = 1000;
+	float bought = stockNum * 45.50;
+	float sold = stockNum * 56.60;
+	float commission1 = bought *.02;
+	float commission2 = sold *.02;
+	float loss = commission1 + commission2 + bought;
+	float total = sold - loss;
+
+	printf("Joe's Stock Transaction\n");
+	printf("");
+
+}
+
