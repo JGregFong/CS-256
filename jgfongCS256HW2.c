@@ -2,12 +2,14 @@
 
 void foodBill();
 void oceanLevels();
+void stockTransaction();
 
 
 int main(){
 
 	foodBill();
 	oceanLevels();
+	stockTransaction();
 
 	return 0;
 }
@@ -49,7 +51,7 @@ void oceanLevels(){
 }
 
 void stockTransaction(){
-
+	//Stock Transaction
 	int stockNum = 1000;
 	float bought = stockNum * 45.50;
 	float sold = stockNum * 56.60;
@@ -59,7 +61,7 @@ void stockTransaction(){
 	float total = sold - loss;
 
 	printf("Joe's Stock Transaction\n");
-	printf("");
+	printf("Joe bought %i shares for $%.2f", stockNum, bought);
 
 }
 
