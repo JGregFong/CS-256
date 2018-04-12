@@ -64,9 +64,9 @@ void stockTransaction(){
 
 	printf("Joe's Stock Transaction\n");
 	printf("Joe bought %d shares for $%.2f\n", stockNum, bought);
-	printf("For buying the shares, Joe paid his broker a 2% commission at $%.2f\n", commission1);
+	printf("For buying the shares, Joe paid his broker a 2 Percent commission at $%.2f\n", commission1);
 	printf("Joe sold %d shares for $%.2f\n", stockNum, sold);
-	printf("For selling the shares, Joe paid his broker a 2% commission at $%.2f\n", commission2);
+	printf("For selling the shares, Joe paid his broker a 2 Percent commission at $%.2f\n", commission2);
 	printf("Profit Total: $%.2f\n", total);
 	printf("=====================\n");
 }
