@@ -76,7 +76,7 @@ void patternDisplay(){
 	printf("Pattern Display \n");
 	printf("Pattern A \n");
 	for(int i = 0; i<loopNumber; i++){
-		for(int j = 0; j<i; j++){
+		for(int j = 0; j<i+1; j++){
 			printf("+");
 		}
 		printf("\n");
