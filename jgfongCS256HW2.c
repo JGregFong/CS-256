@@ -3,7 +3,7 @@
 void foodBill();
 void oceanLevels();
 void stockTransaction();
-void patterDisplay();
+void patternDisplay();
 
 
 int main(){
@@ -11,6 +11,7 @@ int main(){
 	foodBill();
 	oceanLevels();
 	stockTransaction();
+	patternDisplay();
 
 	return 0;
 }
@@ -72,7 +73,22 @@ void stockTransaction(){
 
 void patternDisplay(){
 	int loopNumber = 10;
+	printf("Pattern Display \n");
+	printf("Pattern A \n");
+	for(int i = 0; i<loopNumber; i++){
+		for(int j = 0; j<i; j++){
+			printf("+");
+		}
+		printf("\n");
+	}
 
+	printf("Pattern B \n");
+	for(int i = loopNumber; i>0; i--){
+		for(int j = 0; j<i; j++){
+			printf("+");
+		}
+		printf("\n");
+	}
 
 
 }
