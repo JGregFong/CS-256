@@ -3,6 +3,7 @@
 void foodBill();
 void oceanLevels();
 void stockTransaction();
+void patterDisplay();
 
 
 int main(){
@@ -61,7 +62,18 @@ void stockTransaction(){
 	float total = sold - loss;
 
 	printf("Joe's Stock Transaction\n");
-	printf("Joe bought %i shares for $%.2f", stockNum, bought);
+	printf("Joe bought %d shares for $%.2f\n", stockNum, bought);
+	printf("For buying the shares, Joe paid his broker a 2% commission at $%.2f\n", commission1);
+	printf("Joe sold %d shares for $%.2f\n", stockNum, sold);
+	printf("For selling the shares, Joe paid his broker a 2% commission at $%.2f\n", commission2);
+	printf("Profit Total: $%.2f\n", total);
+	printf("=====================\n");
+}
+
+void patternDisplay(){
+	int loopNumber = 10;
+
+
 
 }
 
