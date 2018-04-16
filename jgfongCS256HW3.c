@@ -2,7 +2,7 @@
 
 float PI = 3.14159;
 
-
+float GeometryCalculator();
 
 int main(){
 
@@ -55,7 +55,7 @@ void GeometryCalculator(){
 	float height;
 	float area;
 
-	char choice1;
+	int choice1;
 
 
 	while(choice1 != 4){
@@ -64,19 +64,25 @@ void GeometryCalculator(){
 	printf("2. Calculate the Area of a Rectangle.\n");
 	printf("3. Calculate the Area of a Triangle.\n");
 	printf("4. Quit \n");
-	printf("Please enter your selection: \n");
+	printf("Please enter your selection [1-4]: \n");
 		switch(choice1){
-		case'1':
+		case 1:
 			printf("Enter the radius of your circle:");
-			scanf("%f", radius);
+			scanf("%f", &radius);
 			area = PI *radius *radius;
-			printf("Your circle's area")
+			printf("Your circle's area is %f", area);
 			break;
-		case'2':
+		case 2:
+			printf("Enter the height of your rectangle:");
+			scanf("%f", &height);
+			printf("Enter the width of your rectangle:");
+			scanf("%f", &width);
+			area = height * width;
+			printf("Your rectangle's area is %f \n", area);
 			break;
-		case'3':
+		case 3:
 			break;
-		case'4':
+		case 4:
 			break;
 		default:
 			printf("Welcome to Geometry Calculator\n");
@@ -85,6 +91,7 @@ void GeometryCalculator(){
 			printf("3. Calculate the Area of a Triangle.\n");
 			printf("4. Quit \n");
 			printf("Please enter your selection: \n");
+			scanf("%d", &choice);
 			break;
 		}
 	}
