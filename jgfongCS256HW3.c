@@ -7,8 +7,7 @@ void Population();
 void TicTacToe();
 void ReverseArray();
 
-typedef int boolean;
-enum{false, true};
+
 
 int main(){
 
@@ -185,29 +184,82 @@ void TicTacToe(){
 
 char grid [3][3] ={{ '*' , '*' , '*' }, { '*' , '*' , '*' }, { '*' , '*' , '*' }};
 
-boolean win;
 
-boolean done = false;
-int turn =1;
+int done = 0;
 
-while(win !=true || done !=true){
+int turn = 1;
+int player = 1;
+int gameStatus = -1;
+
+int row;
+int column;
+while(done ==0){
 
 	printf("Turn %d", turn);
 	printf("=======================");
-	printf("[%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
-	printf("[%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
-	printf("[%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
+	printf("[  ] [0 ] [1 ] [2 ]\n");
+	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
+	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
+	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
 	printf("=======================");
 
-	printf("Player 1: Please enter your selection: [row] [column]\n");
+	printf("Player %d: Please enter your selection: [row] [column]\n", player);
+	fflush(stdout);
+	scanf("%d %d", row, column);
+
+	if(player == 1){
+		grid[row][column] = 'X';
+	}
+	gameStatus = WinCheck(grid);
+
+	if(gameStatus == -1){
+		done = 0;
+		player = 2;
+	}
+	else if(gameStatus == 0){
+
+		done = 1;
+	}
+	else{
+		done = 1;
+	}
+
+	printf("=======================");
+	printf("[  ] [0 ] [1 ] [2 ]\n");
+	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
+	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
+	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
+	printf("=======================");
+
+	printf("Player %d: Please enter your selection: [row] [column]\n", player);
+	fflush(stdout);
+	scanf("%d %d", row, column);
 
 
+	if(player == 2){
+		grid[row][column] = 'O'
+	}
 
+	gameStatus = WinCheck(grid);
 
+	if(gameStatus == -1){
+		done = 0;
+		player = 1;
+	}
+	else if(gameStatus == 0){
+
+		done = 1;
+	}
+	else{
+		done = 1;
+	}
+	turn++;
 }
 
+	printf("Congrats, Player %d ! You win.", player);
+
 }
-int WinCheck(char grid[3][3]){
+int WinCheck(char grid[][]){
 
 	if(grid[0][0] == grid[0][1] && grid[0][1] == grid[0][2]){
 		return 1; // Top row
