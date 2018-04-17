@@ -7,6 +7,9 @@ void Population();
 void TicTacToe();
 void ReverseArray();
 
+typedef int boolean;
+enum{false, true};
+
 int main(){
 
 	int choice;
@@ -184,6 +187,59 @@ char grid [3][3] ={{ '*' , '*' , '*' }, { '*' , '*' , '*' }, { '*' , '*' , '*' }
 
 boolean win;
 
+boolean done = false;
+int turn =1;
+
+while(win !=true || done !=true){
+
+	printf("Turn %d", turn);
+	printf("=======================");
+	printf("[%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
+	printf("[%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
+	printf("[%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
+	printf("=======================");
+
+	printf("Player 1: Please enter your selection: [row] [column]\n");
+
+
+
+
+}
+
+}
+int WinCheck(char grid[3][3]){
+
+	if(grid[0][0] == grid[0][1] && grid[0][1] == grid[0][2]){
+		return 1; // Top row
+	}
+	else if(grid[0][0] == grid[1][1] && grid[1][1]==grid[2][2]){
+		return 1; // Left top to right bottom diagonal
+	}
+	else if(grid[0][0] == grid[1][0] && grid[1][0] == grid[2][0]){
+		return 1; // Left column
+	}
+	else if(grid[1][0] == grid[1][1] && grid[1][1] == grid[1][2]){
+		return 1; // Middle row
+	}
+	else if(grid[0][1] == grid[1][1] && grid[1][1] == grid[2][1]){
+		return 1; // Middle column
+	}
+	else if(grid[2][0] == grid[2][1] && grid[2][1] == grid[2][2]){
+		return 1; // Bottom row
+	}
+	else if(grid[0][2] == grid[1][2] && grid[1][2] == grid[2][2]){
+		return 1; // Right column
+	}
+	else if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]){
+		return 1; //Right top to left bottom diagonal
+	}
+	else if(grid[0][0] !='*' && grid[0][1] != '*' && grid[0][2] !='*' && grid[1][0] != '*' && grid[1][1] !='*'
+			&& grid[1][2] !='*' && grid[2][0] !='*' && grid[2][1] !='*' && grid[2][2] !='*'){
+		return 0; //Game draw
+	}
+	else{
+		return -1; //Game ongoing
+	}
 
 }
 
