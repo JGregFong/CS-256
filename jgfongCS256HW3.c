@@ -18,8 +18,8 @@ int main(){
 	printf("2. Population\n");
 	printf("3. Tic-Tac-Toe\n");
 	printf("4. Reverse Array\n");
-	printf("5. Exit");
-	printf("Please type in a number \n:");
+	printf("5. Exit\n");
+	printf("Please type in a number :");
 	fflush(stdout);
 	scanf("%d", &choice);
 
@@ -35,7 +35,7 @@ int main(){
 			break;
 		case 3:
 			printf("Tic-Tac-Toe Starting");
-
+			TicTacToe();
 			break;
 		case 4:
 			printf("Reverse Array Starting");
@@ -118,7 +118,7 @@ void GeometryCalculator(){
 			printf("4. Quit \n");
 			printf("Please enter your selection: \n");
 			fflush(stdout);
-			scanf("%d", &choice);
+			scanf("%d", &choice1);
 			break;
 		}
 	}
@@ -195,17 +195,17 @@ int row;
 int column;
 while(done ==0){
 
-	printf("Turn %d", turn);
-	printf("=======================");
+	printf("Turn %d\n", turn);
+	printf("=======================\n");
 	printf("[  ] [0 ] [1 ] [2 ]\n");
 	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
 	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
 	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
-	printf("=======================");
+	printf("=======================\n");
 
 	printf("Player %d: Please enter your selection: [row] [column]\n", player);
 	fflush(stdout);
-	scanf("%d %d", row, column);
+	scanf("%d %d", &row, &column);
 
 	if(player == 1){
 		grid[row][column] = 'X';
@@ -224,20 +224,20 @@ while(done ==0){
 		done = 1;
 	}
 
-	printf("=======================");
+	printf("=======================\n");
 	printf("[  ] [0 ] [1 ] [2 ]\n");
 	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
 	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
 	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
-	printf("=======================");
+	printf("=======================\n");
 
 	printf("Player %d: Please enter your selection: [row] [column]\n", player);
 	fflush(stdout);
-	scanf("%d %d", row, column);
+	scanf("%d %d", &row, &column);
 
 
 	if(player == 2){
-		grid[row][column] = 'O'
+		grid[row][column] = 'O';
 	}
 
 	gameStatus = WinCheck(grid);
@@ -259,7 +259,7 @@ while(done ==0){
 	printf("Congrats, Player %d ! You win.", player);
 
 }
-int WinCheck(char grid[][]){
+int WinCheck(char grid[3][3]){
 
 	if(grid[0][0] == grid[0][1] && grid[0][1] == grid[0][2]){
 		return 1; // Top row
@@ -296,6 +296,8 @@ int WinCheck(char grid[][]){
 }
 
 void ReverseArray(){
+
+
 
 }
 
