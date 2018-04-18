@@ -5,7 +5,7 @@ float PI = 3.14159;
 void GeometryCalculator();
 void Population();
 void TicTacToe();
-void ReverseArray();
+void ReverseArray(int array[], int size);
 
 int WinCheck(char[][]);
 
@@ -39,6 +39,10 @@ int main(){
 			break;
 		case 4:
 			printf("Reverse Array Starting");
+			int array[5] = {5, 10, 15, 20, 25};
+			printf("Array being inputted. {%d, %d, %d, %d, %d} \n", array[0], array[1], array[2], array[3], array[4]);
+			ReverseArray(array, sizeof(array)/sizeof(array[0]));
+
 			break;
 		case 5:
 			printf("Exiting.");
@@ -268,30 +272,31 @@ void TicTacToe(){
 		printf("Congrats, Player %d ! You win.", player);
 
 }
+
 int WinCheck(char grid[3][3]){
 
-	if(grid[0][0] == grid[0][1] && grid[0][1] == grid[0][2]){
+	if(grid[0][0] == grid[0][1] && grid[0][1] == grid[0][2] && grid[0][0] != '*'){
 		return 1; // Top row
 	}
-	else if(grid[0][0] == grid[1][1] && grid[1][1]==grid[2][2]){
+	else if(grid[0][0] == grid[1][1] && grid[1][1]==grid[2][2] && grid[0][0] != '*'){
 		return 1; // Left top to right bottom diagonal
 	}
-	else if(grid[0][0] == grid[1][0] && grid[1][0] == grid[2][0]){
+	else if(grid[0][0] == grid[1][0] && grid[1][0] == grid[2][0] && grid[0][0] != '*'){
 		return 1; // Left column
 	}
-	else if(grid[1][0] == grid[1][1] && grid[1][1] == grid[1][2]){
+	else if(grid[1][0] == grid[1][1] && grid[1][1] == grid[1][2] && grid[1][0] != '*'){
 		return 1; // Middle row
 	}
-	else if(grid[0][1] == grid[1][1] && grid[1][1] == grid[2][1]){
+	else if(grid[0][1] == grid[1][1] && grid[1][1] == grid[2][1] && grid[0][1] != '*'){
 		return 1; // Middle column
 	}
-	else if(grid[2][0] == grid[2][1] && grid[2][1] == grid[2][2]){
+	else if(grid[2][0] == grid[2][1] && grid[2][1] == grid[2][2] && grid[2][0] != '*'){
 		return 1; // Bottom row
 	}
-	else if(grid[0][2] == grid[1][2] && grid[1][2] == grid[2][2]){
+	else if(grid[0][2] == grid[1][2] && grid[1][2] == grid[2][2] && grid[0][2] != '*'){
 		return 1; // Right column
 	}
-	else if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]){
+	else if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0] && grid[0][2] != '*'){
 		return 1; //Right top to left bottom diagonal
 	}
 	else if(grid[0][0] !='*' && grid[0][1] != '*' && grid[0][2] !='*' && grid[1][0] != '*' && grid[1][1] !='*'
@@ -301,10 +306,9 @@ int WinCheck(char grid[3][3]){
 	else{
 		return -1; //Game ongoing
 	}
-
 }
 
-void ReverseArray(){
+void ReverseArray(int array[], int size){
 
 
 
