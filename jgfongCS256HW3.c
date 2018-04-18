@@ -182,90 +182,90 @@ void Population(){
 }
 void TicTacToe(){
 
-char grid [3][3] ={{ '*' , '*' , '*' }, { '*' , '*' , '*' }, { '*' , '*' , '*' }};
+	char grid [3][3] ={{ '*' , '*' , '*' }, { '*' , '*' , '*' }, { '*' , '*' , '*' }};
 
 
-int done = 0;
+	int done = 0;
 
-int turn = 1;
-int player = 1;
-int gameStatus = -1;
+	int turn = 1;
+	int player = 1;
+	int gameStatus = -1;
 
-int row;
-int column;
-while(done ==0){
+	int row;
+	int column;
+	while(done ==0){
 
-	printf("Turn %d\n", turn);
-	printf("=======================\n");
-	printf("[  ] [0 ] [1 ] [2 ]\n");
-	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
-	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
-	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
-	printf("=======================\n");
+		printf("Turn %d\n", turn);
+		printf("=======================\n");
+		printf("[  ] [0 ] [1 ] [2 ]\n");
+		printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
+		printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
+		printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
+		printf("=======================\n");
 
-	printf("Player %d: Please enter your selection: [row] [column]\n", player);
-	fflush(stdout);
-	scanf("%d %d", &row, &column);
+		printf("Player %d: Please enter your selection: [row] [column]\n", player);
+		fflush(stdout);
+		scanf("%d %d", &row, &column);
 
-	if(player == 1){
-		grid[row][column] = 'X';
+		if(player == 1){
+			grid[row][column] = 'X';
+		}
+		gameStatus = WinCheck(grid);
+
+		if(gameStatus == -1){
+			done = 0;
+			player = 2;
+		}
+		else if(gameStatus == 0){
+
+			done = 1;
+		}
+		else{
+			done = 1;
+		}
+
+		if(done == 0){
+		printf("=======================\n");
+		printf("[  ] [0 ] [1 ] [2 ]\n");
+		printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
+		printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
+		printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
+		printf("=======================\n");
+
+		printf("Player %d: Please enter your selection: [row] [column]\n", player);
+		fflush(stdout);
+		scanf("%d %d", &row, &column);
+
+
+		if(player == 2){
+			grid[row][column] = 'O';
+		}
+
+		gameStatus = WinCheck(grid);
+
+		if(gameStatus == -1){
+			done = 0;
+			player = 1;
+		}
+		else if(gameStatus == 0){
+
+			done = 1;
+		}
+		else{
+			done = 1;
+		}
+		turn++;
+		}
+
 	}
-	gameStatus = WinCheck(grid);
 
-	if(gameStatus == -1){
-		done = 0;
-		player = 2;
-	}
-	else if(gameStatus == 0){
-
-		done = 1;
-	}
-	else{
-		done = 1;
-	}
-
-	if(done == 0){
-	printf("=======================\n");
-	printf("[  ] [0 ] [1 ] [2 ]\n");
-	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
-	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
-	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
-	printf("=======================\n");
-
-	printf("Player %d: Please enter your selection: [row] [column]\n", player);
-	fflush(stdout);
-	scanf("%d %d", &row, &column);
-
-
-	if(player == 2){
-		grid[row][column] = 'O';
-	}
-
-	gameStatus = WinCheck(grid);
-
-	if(gameStatus == -1){
-		done = 0;
-		player = 1;
-	}
-	else if(gameStatus == 0){
-
-		done = 1;
-	}
-	else{
-		done = 1;
-	}
-	turn++;
-	}
-
-}
-
-	printf("=======================\n");
-	printf("[  ] [0] [1] [2]\n");
-	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
-	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
-	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
-	printf("=======================\n");
-	printf("Congrats, Player %d ! You win.", player);
+		printf("=======================\n");
+		printf("[  ] [0] [1] [2]\n");
+		printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
+		printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
+		printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
+		printf("=======================\n");
+		printf("Congrats, Player %d ! You win.", player);
 
 }
 int WinCheck(char grid[3][3]){
