@@ -7,7 +7,7 @@ void Population();
 void TicTacToe();
 void ReverseArray();
 
-
+int WinCheck(char[][]);
 
 int main(){
 
@@ -19,7 +19,7 @@ int main(){
 	printf("3. Tic-Tac-Toe\n");
 	printf("4. Reverse Array\n");
 	printf("5. Exit\n");
-	printf("Please type in a number :");
+	printf("Please type in a number [1-5]:");
 	fflush(stdout);
 	scanf("%d", &choice);
 
@@ -173,11 +173,11 @@ void Population(){
 	}
 
 	for(int loop = 0; loop< years; loop++){
-		newPop = startPop + birthRate + deathRate;
+		newPop = startPop + birthRate - deathRate;
 		startPop = newPop;
 	}
 
-	printf("%d", newPop);
+	printf("New Population: %d", newPop);
 
 }
 void TicTacToe(){
@@ -224,6 +224,7 @@ while(done ==0){
 		done = 1;
 	}
 
+	if(done == 0){
 	printf("=======================\n");
 	printf("[  ] [0 ] [1 ] [2 ]\n");
 	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
@@ -254,8 +255,16 @@ while(done ==0){
 		done = 1;
 	}
 	turn++;
+	}
+
 }
 
+	printf("=======================\n");
+	printf("[  ] [0] [1] [2]\n");
+	printf("[0 ] [%c] [%c] [%c]\n", grid[0][0], grid[0][1], grid[0][2]);
+	printf("[1 ] [%c] [%c] [%c]\n", grid[1][0], grid[1][1], grid[1][2]);
+	printf("[2 ] [%c] [%c] [%c]\n", grid[2][0], grid[2][1], grid[2][2]);
+	printf("=======================\n");
 	printf("Congrats, Player %d ! You win.", player);
 
 }
