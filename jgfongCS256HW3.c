@@ -5,7 +5,7 @@ float PI = 3.14159;
 void GeometryCalculator();
 void Population();
 void TicTacToe();
-void ReverseArray(int array[], int size);
+int  *ReverseArray(int array[], int size);
 
 int WinCheck(char[][]);
 
@@ -40,9 +40,16 @@ int main(){
 		case 4:
 			printf("Reverse Array Starting");
 			int array[5] = {5, 10, 15, 20, 25};
+			int size = sizeof(array)/sizeof(array[0]);
 			printf("Array being inputted. {%d, %d, %d, %d, %d} \n", array[0], array[1], array[2], array[3], array[4]);
-			ReverseArray(array, sizeof(array)/sizeof(array[0]));
 
+
+			int *reversedArray = ReverseArray(array, size);
+			printf("Reversed array: \n");
+			for(int i = 0; i< size; i++){
+				printf(" %d", *reversedArray);
+				reversedArray++;
+			}
 			break;
 		case 5:
 			printf("Exiting.");
@@ -308,9 +315,14 @@ int WinCheck(char grid[3][3]){
 	}
 }
 
-void ReverseArray(int array[], int size){
+int * ReverseArray(int array[], int size){
 
-
+	static int newArray[5];
+	int counter = size-1;
+	for(int i = 0; i< size; i++){
+		newArray[i]= array[counter - i];
+	}
+	return newArray;
 
 }
 
