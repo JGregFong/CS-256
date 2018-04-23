@@ -4,6 +4,7 @@ int allSeats = 450;
 int rows = 15;
 int columns = 30;
 float BuySeats(char *array, float seatPrice[]);
+int CheckSeats(char chart [][30]);
 
 int main(){
 char theater[rows][columns];
@@ -13,7 +14,10 @@ for (int i = 0; i<rows; i++){
 	}
 }
 float prices[rows];
+float ticketSales = 0;
 
+int available = 0;
+int seatsTaken;
 printf("Welcome to the Theatre Seating Form. \n");
 
 printf("Please enter the seating prices for each row: \n");
@@ -27,8 +31,6 @@ for(int i = 0; i< rows; i++){
 	printf("Row %d Price Recorded.\n",i);
 }
 
-printf("\t\t Seating\n");
-
 printf("\t\t Seating \n");
 printf("\t 012345678901234567890123456789\n");
 for(int i=0; i<rows; i++){
@@ -40,17 +42,15 @@ for(int i=0; i<rows; i++){
 }
 
 
+int choice;
+
+do{
 printf("Please select from any of the choices below: \n");
 printf("1. Buy Seats \n");
 printf("2. Check Ticket Sales\n");
-printf("3. Check Seat Availability\n");
-printf("4. Check Seat Statistics\n");
-printf("5. Exit\n");
+printf("3. Check Seat Availability and Data\n");
+printf("4. Exit\n");
 printf("What is your choice? ");
-int choice;
-
-
-do{
 fflush(stdout);
 scanf("%d", &choice);
 switch(choice){
@@ -58,32 +58,27 @@ case 1:
 	ticketSales += BuySeats(*theater, prices);
 	break;
 case 2:
+	printf("The amount of money gained: $%.2f \n", ticketSales);
 
 	break;
 case 3:
 
+	seatsTaken = CheckSeats(theater);
+	available = allSeats - seatsTaken;
+	printf("Seats available in theatre: %d\n", available);
 	break;
 case 4:
-
-	break;
-case 5:
-
+	printf("Exiting program. \n");
 	break;
 default:
-	printf("That is not a valid choice.");
-	printf("Please select from any of the choices below: \n");
-	printf("1. Buy Seats \n");
-	printf("2. Check Ticket Sales\n");
-	printf("3. Check Seat Availability\n");
-	printf("4. Check Seat Statistics\n");
-	printf("5. Exit\n");
-	printf("What is your choice? ");
+	printf("That is not a valid choice.\n");
+
 
 	break;
 
 }
 }
-while(choice!= 5);
+while(choice!= 4);
 
 	return 0;
 }
@@ -115,11 +110,11 @@ float BuySeats(char *array, float seatPrice[] ){
 				printf("[Row] [Column]: ");
 				fflush(stdout);
 				scanf("%d %d", &row, &column);
-				check = *(array+(row*column));
+				check = *(array+(row*columns + column));
 			}
 			else{
 
-				*(array+(row*column)) = '*';
+				*(array+(row*columns + column)) = '*';
 				bought += seatPrice[row];
 				assigned = 1;
 				printf("Seat at %d %d has been successfully acquired at a price of $ %.2f \n", row, column, seatPrice[row]);
@@ -133,31 +128,33 @@ float BuySeats(char *array, float seatPrice[] ){
 		for(int i=0; i<rows; i++){
 			printf("Row %d:\t ",i);
 			for(int j = 0; j<columns; j++){
-				printf("%c", *(array+(i*j)));
+				printf("%c", *(array+(i*columns +j)));
 			}
 			printf("\n");
 		}
 		done++;
 	}
 
-
-
-
-
 	printf("You bought all your seats. \n");
+	printf("$%.2f worth of seats bought. \n", bought);
 
 	return bought;
 }
 
 int CheckSeats(char chart[rows][columns]){
 	int taken = 0;
+
 	for(int i = 0; i<rows; i++){
+		int rowSeatsTaken = 0;
 		for(int j = 0; j<columns; j++){
 			if(chart[i][j] == '*'){
 				taken++;
+				rowSeatsTaken++;
 			}
 		}
+		printf("For Row %d, %d seats have been filled.\n", i, rowSeatsTaken);
+		printf("For Row %d, %d seats are empty. \n", i, columns-rowSeatsTaken);
 	}
 
-	return 0;
+	return taken;
 }
