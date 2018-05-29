@@ -1,11 +1,10 @@
 //LargeNumber.h
 #pragma once
 #include <string>
-#ifndef LargeNumber.h
-#ifdef LargeNumber.h
-
-
+#include <vector>
 using namespace std;
+
+
 
 class LargeNumber {
 private:
@@ -13,7 +12,8 @@ private:
 public:
 	LargeNumber();
 	LargeNumber(string num);
-	void CreateNumber(string num);
+
+	string ToString(LargeNumber other);
 
 	LargeNumber operator +(const LargeNumber &other) const;
 	LargeNumber operator -(const LargeNumber &other) const;
@@ -25,5 +25,4 @@ public:
 	~LargeNumber();
 };
 
-#endif // !LargeNumber.h
 
