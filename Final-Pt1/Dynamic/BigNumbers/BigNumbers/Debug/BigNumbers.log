@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  BigNumbers.cpp
+c:\users\robof\source\repos\otherversions\dynamic\bignumbers\bignumbers\bignumbers.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\robof\source\repos\otherversions\dynamic\bignumbers\bignumbers\bignumbers.cpp(61): warning C4018: '<': signed/unsigned mismatch
+  dllmain.cpp
+  Generating Code...
+  BigNumbers.vcxproj -> c:\users\robof\Source\Repos\OtherVersions\Dynamic\BigNumbers\Debug\BigNumbers.dll
