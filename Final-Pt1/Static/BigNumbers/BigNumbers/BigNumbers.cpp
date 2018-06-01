@@ -259,14 +259,13 @@ BigNumbers BigNumbers::operator-(int other)
 	BigNumbers result(numResult);
 	return result;
 }
-
 ///An overloaded operator.
 ///This operator multiplies one BigNumbers operator with another to produce
 ///a BigNumbers object result.
 ///\param &other BigNumbers the right hand BigNumbers object.
 BigNumbers BigNumbers::operator*(BigNumbers & other)
 {
-	string numResult;
+
 	string first = BigNumbers::ToString();
 	int lengthOne = first.length();
 
@@ -274,9 +273,12 @@ BigNumbers BigNumbers::operator*(BigNumbers & other)
 	int lengthTwo = second.length();
 
 	if (lengthOne == 0 || lengthTwo == 0) {
-		numResult = "0";
+
+		BigNumbers result("0");
+		return result;
 	}
 
+	vector <int>numResult(lengthOne + lengthTwo, 0);
 	int indexOne = 0;
 	int indexTwo = 0;
 
@@ -307,22 +309,23 @@ BigNumbers BigNumbers::operator*(BigNumbers & other)
 	}
 
 	if (i == -1) {
-		numResult = "0";
+
+		BigNumbers result("0");
+		return result;
 	}
 
-	string s = "";
+	string solution = "";
 	while (i >= 0) {
-		s += to_string(numResult[i--]);
+		solution += to_string(numResult[i--]);
 	}
 
-	BigNumbers result(s);
+	BigNumbers result(solution);
 	return result;
 }
 
 BigNumbers BigNumbers::operator*(int other)
 {
 
-	string numResult;
 	string first = BigNumbers::ToString();
 	int lengthOne = first.length();
 
@@ -330,9 +333,11 @@ BigNumbers BigNumbers::operator*(int other)
 	int lengthTwo = second.length();
 
 	if (lengthOne == 0 || lengthTwo == 0) {
-		numResult = "0";
+		string numResult = "0";
+		BigNumbers result(numResult);
+		return result;
 	}
-
+	vector<int> numResult(lengthOne + lengthTwo, 0);
 	int indexOne = 0;
 	int indexTwo = 0;
 
@@ -363,15 +368,17 @@ BigNumbers BigNumbers::operator*(int other)
 	}
 
 	if (i == -1) {
-		numResult = "0";
+
+		BigNumbers result("0");
+		return result;
 	}
 
-	string s = "";
+	string solution = "";
 	while (i >= 0) {
-		s += to_string(numResult[i--]);
+		solution += to_string(numResult[i--]);
 	}
 
-	BigNumbers result(s);
+	BigNumbers result(solution);
 	return result;
 }
 
