@@ -396,19 +396,20 @@ BigNumbers BigNumbers::operator/(int other)
 
 
 	if (lengthTwo > lengthOne) {
-		numResult = "0";
+		BigNumbers result("0");
+		return result;
 	}
 	else {
 		int index = 0;
 		int placeCheck = first[index] - '0';
 		while (placeCheck < other) {
-			placeCheck = placeCheck * 10 + (first[index++] + '0');
+			placeCheck = placeCheck * 10 + (first[++index] - '0');
 		}
 
 
-		while (index < lengthOne) {
+		while (lengthOne> index) {
 			numResult += (placeCheck / other) + '0';
-			placeCheck = (placeCheck%other) * 10 + (first[index++] + '0');
+			placeCheck = (placeCheck % other) * 10 + first[++index] - '0';
 		}
 	}
 
