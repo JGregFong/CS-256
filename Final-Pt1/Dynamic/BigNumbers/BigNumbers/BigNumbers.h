@@ -88,13 +88,7 @@ public:
 	///\param other an integer for modulo with BigNumbers.
 	BigNumbers operator %(int other);
 
-	//!An overloaded postfix operator.
-	/*!This operator increments one BigNumbers object by one.*/
-	BigNumbers operator++();
 
-	//!An overloaded postfix operator.
-	/*!This operator decrements one BigNumbers object by one.*/
-	BigNumbers operator--();
 
 
 	///A destructor for BigNumbers.
