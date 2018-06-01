@@ -1,4 +1,0 @@
-﻿  BigNumbers.cpp
-c:\users\robof\source\repos\otherversions\static\bignumbers\bignumbers\bignumbers.cpp(26): warning C4018: '<': signed/unsigned mismatch
-c:\users\robof\source\repos\otherversions\static\bignumbers\bignumbers\bignumbers.cpp(60): warning C4018: '<': signed/unsigned mismatch
-  BigNumbers.vcxproj -> c:\users\robof\Source\Repos\OtherVersions\Static\BigNumbers\Debug\BigNumbers.lib
